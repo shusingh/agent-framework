@@ -144,7 +144,7 @@ async def test_auto_function_calling_preserves_explicit_null_arguments(chat_clie
         captured_args.append((location, unit))
         return f"{location}:{unit or 'C'}"
 
-    chat_client_base.run_responses = [
+    chat_client_base.run_responses = [  # type: ignore[attr-defined]  # ty: ignore[unresolved-attribute]
         ChatResponse(
             messages=Message(
                 role="assistant",
@@ -185,7 +185,7 @@ async def test_auto_function_calling_preserves_nested_explicit_null_arguments(
         return f"{location}:{options['unit'] or 'C'}"
 
     weather_tool = FunctionTool(name="get_weather", func=get_weather, input_model=WeatherArgs)
-    chat_client_base.run_responses = [
+    chat_client_base.run_responses = [  # type: ignore[attr-defined]  # ty: ignore[unresolved-attribute]
         ChatResponse(
             messages=Message(
                 role="assistant",
